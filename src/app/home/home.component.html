@@ -1,0 +1,22 @@
+<div *ngIf="recommended" class="container">
+    <mat-card class="example-card" appearance="outlined" *ngFor="let flight of recommended">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="[generateImageUrl(flight.destination)]" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+            <h1>{{flight.destination}}</h1>
+            <p>Scheduled at: {{flight.scheduledAt}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <a mat-button [routerLink]="['/flight/',flight.id]">
+                <i class="fa-solid fa-circle-info"></i> Details
+            </a>
+            <button mat-button>
+                <i class="fa-solid fa-up-right-from-square"></i> Book now
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>
