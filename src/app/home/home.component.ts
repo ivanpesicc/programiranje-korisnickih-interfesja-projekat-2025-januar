@@ -42,4 +42,8 @@ export class HomeComponent implements OnInit {
     return `https://img.pequla.com/destination${dest.split(' ')[0].toLowerCase()}.jpg`
   }
 
+  public formatDate(iso: string) {
+    return new Date(iso).toLocaleString('sr-RS')
+  }
+
 }
