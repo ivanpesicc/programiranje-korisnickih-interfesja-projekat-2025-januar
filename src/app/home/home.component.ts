@@ -9,6 +9,7 @@ import { FlightModel } from '../../models/flight.model';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { WebService } from '../../services/web.service';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -29,29 +30,23 @@ import { WebService } from '../../services/web.service';
 })
 export class HomeComponent implements OnInit {
 
-  private service: WebService
+  private webService: WebService
+  private dataService: DataService
   public recommended: FlightModel[] = []
   public destinations: string[] = []
-
-  // public destinations: string[] = [
-  //   'Zagreb', 'Memmingen', 'Vienna'
-  // ]
-
-  public airlines: string[] = [
-    'Air Serbia', 'Fly Emirates', 'Lufthansa'
-  ]
-
-  public flightClass: string[] = [
-    'First Class', 'Business', 'Economy'
-  ]
+  public airlines: string[] = []
+  public flightClass: string[] = []
 
   constructor() {
-    this.service = new WebService()
+    this.webService = new WebService()
+    this.dataService = new DataService()
   }
 
   ngOnInit(): void {
-    this.service.getRecommendedFlights().subscribe(rsp => this.recommended = rsp.content)
-    this.service.getAvailableDestinations().subscribe(rsp => this.destinations = rsp)
+    this.webService.getRecommendedFlights().subscribe(rsp => this.recommended = rsp.content)
+    this.webService.getAvailableDestinations().subscribe(rsp => this.destinations = rsp)
+    this.airlines = this.dataService.getAirlines()
+    this.flightClass = this.dataService.getFlightClass()
   }
 
   public generateImageUrl(dest: string) {

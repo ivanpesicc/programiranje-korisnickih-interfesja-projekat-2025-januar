@@ -10,5 +10,23 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: #151515;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+span {
+    color: white;
+}
