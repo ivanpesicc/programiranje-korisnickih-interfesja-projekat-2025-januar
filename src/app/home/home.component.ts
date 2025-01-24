@@ -10,6 +10,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { WebService } from '../../services/web.service';
 import { DataService } from '../../services/data.service';
+import { throwToolbarMixedModesError } from '@angular/material/toolbar';
+import { SearchContainerComponent } from "../search-container/search-container.component";
 
 @Component({
   selector: 'app-home',
@@ -23,8 +25,9 @@ import { DataService } from '../../services/data.service';
     RouterLink,
     MatListModule,
     MatInputModule,
-    MatSelectModule
-  ],
+    MatSelectModule,
+    SearchContainerComponent
+],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
